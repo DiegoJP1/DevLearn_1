@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+.dropdown-menu {
+  font-family: inherit;
+  font-size: inherit;
+  background-color: #ffffff;
+  width: 250px;
+  height: 40px;
+  padding: 0 40px 0 10px;
+  border: solid 1px #9f9f9f;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  border-radius: 8px; }
+  .dropdown-menu .dropdown-menu-switch {
+    font-family: inherit;
+    font-size: inherit;
+    background-color: transparent;
+    width: 30px;
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    outline: none;
+    cursor: default; }
+    .dropdown-menu .dropdown-menu-switch:after {
+      content: '';
+      border-top: solid 7px #000000;
+      border-bottom: none;
+      border-left: solid 5px transparent;
+      border-right: solid 5px transparent;
+      display: block; }
+  .dropdown-menu .dropdown-menu-text {
+    font-family: inherit;
+    font-size: inherit;
+    background-color: #ffffff;
+    width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+    border: none;
+    display: block;
+    outline: none; }
+  .dropdown-menu .dropdown-menu-options {
+    font-family: inherit;
+    font-size: inherit;
+    background-color: #ffffff;
+    width: calc(100% + 2px);
+    box-sizing: border-box;
+    height: 0;
+    overflow: auto;
+    position: absolute;
+    top: 42px;
+    left: -1px;
+    outline: none;
+    border-radius: 8px;
+    transition: height 150ms ease-out; }
+    .dropdown-menu .dropdown-menu-options .dropdown-menu-option {
+      font-family: inherit;
+      font-size: inherit;
+      background-color: #ffffff;
+      width: 100%;
+      box-sizing: border-box;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      overflow: hidden;
+      outline: none;
+      user-select: none;
+      cursor: default;
+      transition: color 150ms, background-color 150ms; }
+      .dropdown-menu .dropdown-menu-options .dropdown-menu-option:hover {
+        background-color: #f5f5f5; }
+      .dropdown-menu .dropdown-menu-options .dropdown-menu-option:active, .dropdown-menu .dropdown-menu-options .dropdown-menu-option:focus, .dropdown-menu .dropdown-menu-options .dropdown-menu-option.dropdown-menu-option-active {
+        color: #ffffff;
+        background-color: #1e90ff; }
+
+/*# sourceMappingURL=combo.css.map */

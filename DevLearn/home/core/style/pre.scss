@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+
+$dropdown-menu-background-color: #ffffff;
+$dropdown-menu-width: 250px;
+$dropdown-menu-height: 40px;
+$dropdown-menu-border-size: 1px;
+$dropdown-menu-border-color: #9f9f9f;
+$dropdown-menu-border: solid $dropdown-menu-border-size $dropdown-menu-border-color;
+$dropdown-menu-padding-y: 0;
+$dropdown-menu-padding-x: 10px;
+$dropdown-menu-border-radius: 8px;
+
+$dropdown-menu-switch-color: transparent;
+$dropdown-menu-switch-width: 30px;
+
+$dropdown-menu-caret-color: #000000;
+$dropdown-menu-caret-height: 7px;
+$dropdown-menu-caret-width: 10px;
+
+$dropdown-menu-options-left: -$dropdown-menu-border-size;
+$dropdown-menu-options-top: $dropdown-menu-height + 2px;
+$dropdown-menu-options-transition-time: 150ms;
+$dropdown-menu-options-border-radius: 8px;
+
+$dropdown-menu-option-height: $dropdown-menu-height;
+$dropdown-menu-option-transition-time: 150ms;
+
+$dropdown-menu-option-hover-color: #f5f5f5;
+
+$dropdown-menu-option-active-font-color: #ffffff;
+$dropdown-menu-option-active-background-color: #1e90ff;
+
+@mixin common($background-color, $width) {
+	font-family: inherit;
+	font-size: inherit;
+	background-color: $background-color;
+	width: $width;
+	box-sizing: border-box;
+}
+
+.dropdown-menu {
+	font-family: inherit;
+	font-size: inherit;
+	background-color: $dropdown-menu-background-color;
+	width: $dropdown-menu-width;
+	height: $dropdown-menu-height;
+	padding:
+		#{$dropdown-menu-padding-y}
+		#{$dropdown-menu-padding-x + $dropdown-menu-switch-width}
+		#{$dropdown-menu-padding-y}
+		#{$dropdown-menu-padding-x};
+	border: $dropdown-menu-border;
+	display: inline-block;
+	position: relative;
+	box-sizing: border-box;
+	border-radius: $dropdown-menu-border-radius;
+	.dropdown-menu-switch {
+		@include common($dropdown-menu-switch-color, $dropdown-menu-switch-width);
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		top: 0;
+		right: 0;
+		outline: none;
+		cursor: default;
+		&:after {
+			content: '';
+			border-top: solid $dropdown-menu-caret-height $dropdown-menu-caret-color;
+			border-bottom: none;
+			border-left: solid #{$dropdown-menu-caret-width / 2} transparent;
+			border-right: solid #{$dropdown-menu-caret-width / 2} transparent;
+			display: block;
+		}
+	}
+	.dropdown-menu-text {
+		@include common($dropdown-menu-background-color, 100%);
+		height: 100%;
+		border: none;
+		display: block;
+		outline: none;
+	}
+	.dropdown-menu-options {
+		@include common(
+			$dropdown-menu-background-color,
+			calc(100% + #{$dropdown-menu-border-size * 2})
+		);
+		height: 0;
+		overflow: auto;
+		position: absolute;
+		top: $dropdown-menu-options-top;
+		left: $dropdown-menu-options-left;
+		outline: none;
+		border-radius: $dropdown-menu-options-border-radius;
+		transition: height $dropdown-menu-options-transition-time ease-out;
+		.dropdown-menu-option {
+			@include common($dropdown-menu-background-color, 100%);
+			height: $dropdown-menu-option-height;
+			display: flex;
+			align-items: center;
+			padding: $dropdown-menu-padding-y $dropdown-menu-padding-x;
+			overflow: hidden;
+			outline: none;
+			user-select: none;
+			cursor: default;
+			transition: color $dropdown-menu-option-transition-time,
+				background-color $dropdown-menu-option-transition-time;
+			&:hover {
+				background-color: $dropdown-menu-option-hover-color;
+			}
+			&:active, &:focus, &.dropdown-menu-option-active {
+				color: $dropdown-menu-option-active-font-color;
+				background-color: $dropdown-menu-option-active-background-color;
+			}
+		}
+	}
+}
